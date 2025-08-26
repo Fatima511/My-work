@@ -1,0 +1,11 @@
+<odoo>
+    <record id="group_qa_engineer" model="res.groups">
+        <field name="name">QA Engineer</field>
+        <field name="category_id" ref="base.module_category_quality_assurance"/>
+    </record>
+
+    <record id="group_software_developer" model="res.groups">
+        <field name="name">Software Developer</field>
+        <field name="category_id" ref="base.module_category_quality_assurance"/>
+    </record>
+</odoo>
