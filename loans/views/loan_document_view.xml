@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="loan_document_view_tree" model="ir.ui.view">
+        <field name="name">loan.document.view.list</field>
+        <field name="model">loan.document</field>
+        <field name="arch" type="xml">
+            <list string="Loan Document" editable="bottom">
+                <field name="document_name" />
+                <field name="company_id" />
+
+            </list>
+        </field>
+    </record>
+    <record id="loan_document_action" model="ir.actions.act_window">
+        <field name="name">Loan Documents</field>
+        <field name="res_model">loan.document</field>
+        <field name="view_mode">list</field>
+
+    </record>
+
+        <menuitem id="loan_management_menu_root" name="Loan Management"
+               />
+        <menuitem id="loan_management_config" name="Documents" sequence="2"
+                  parent="loan_management_menu_root"/>
+        <menuitem id="loan_management_document" name="Loan Documents"
+                  parent="loan_management_config" action="loan_document_action"/>
+
+</odoo>

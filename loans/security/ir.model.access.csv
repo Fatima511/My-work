@@ -1,0 +1,10 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_loan_documents_base,access.loan.documents.base,model_loan_document,base.group_user,1,1,1,1
+access_loan_type_base,access.loan.type.base,model_loan_type,base.group_user,1,1,1,1
+access_loan_request_manager,access.loan.request.manager,model_loan_request,loans.group_loan_manager,1,1,1,1
+access_loan_request_user,access.loan.request.user,model_loan_request,loans.group_loan_user,1,1,1,0
+access_reject_reason_wizard_base,access.reject.reason.base,model_reject_loan_wizard,base.group_user,1,1,1,1
+access_repayment_line_base,access.repayment.line.base,model_loan_prepayment_line,base.group_user,1,1,1,1
+
+
+

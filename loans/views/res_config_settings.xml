@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_loan_config_settings" model="ir.ui.view">
+        <field name="name">loan.config.settings.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+                 <xpath expr="//form" position="inside">
+                        <app data-string="Loans" string="Loans" name="loan" groups="base.group_user">
+                            <block title="Loans" name="loans_setting_container">
+                                <setting id="presence_control_setting" title="Loans Configurations" string="Loans Configurations">
+                                    <div class="content-group" name="loans_options">
+                                        <div class="d-flex">
+
+                                            <label for="prepayment_journal" class="o_light_label"/>
+                                            <field name="prepayment_journal" class="ml16"/>
+                                        </div>
+                                        <div class="d-flex">
+                                            <label for="prepayment_account" class="o_light_label"/>
+                                            <field name="prepayment_account" class="ml16"/>
+
+                                        </div>
+                                        <div class="d-flex">
+                                            <label for="prepayment_product" class="o_light_label"/>
+                                            <field name="prepayment_product" class="ml16"/>
+
+                                        </div>
+                                    </div>
+                                </setting>
+                            </block>
+                        </app>
+                    </xpath>
+            </field>
+        </record>
+      <record id="res_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'loans', 'bin_size': False}</field>
+    </record>
+    <menuitem id="loan_management_settings" name="Settings"
+                  parent="loan_management_menu_root" action="res_config_settings_action"/>
+
+</odoo>
