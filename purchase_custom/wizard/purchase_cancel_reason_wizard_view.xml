@@ -1,0 +1,27 @@
+<odoo>
+    <record id="purchase_cancel_reasons_view_wizard" model="ir.ui.view">
+        <field name="name">purchase.cancel.reasons.wizard</field>
+        <field name="model">purchase.cancel.reason.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                        <field name="predefined_reason"/>
+                        <field name="custom_reason" invisible="predefined_reason == True" required="predefined_reason == False"/>
+                        <field name="reason_id" invisible="predefined_reason == False" required="predefined_reason == True"/>
+                    </group>
+                    <footer>
+                        <button class="btn btn-primary" type="object" name="action_submit" string="Submit"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="purchase_cancel_reasons_view_wizard_action" model="ir.actions.act_window">
+        <field name="name">Cancel Reason Wizard</field>
+        <field name="res_model">purchase.cancel.reason.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_purchase_order_id': active_id}</field>
+    </record>
+   </odoo>

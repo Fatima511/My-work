@@ -1,0 +1,18 @@
+<odoo>
+    <record id="form_purchase_cancel_reasons_view" model="ir.ui.view">
+        <field name="name">purchase.cancel.reasons.form</field>
+        <field name="model">purchase.cancel.reasons</field>
+        <field name="arch" type="xml">
+            <list editable="top" string="Cancel Reasons">
+                <field name="reason" required="1" force_save="1"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_purchase_cancel_reasons" model="ir.actions.act_window">
+        <field name="name">Cancel Reasons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.cancel.reasons</field>
+        <field name="view_mode">list</field>
+    </record>
+    <menuitem name="Cancel Reasons" id="menu_purchase_cancel_reasons" action="action_purchase_cancel_reasons" parent="purchase.menu_purchase_config"/>
+</odoo>

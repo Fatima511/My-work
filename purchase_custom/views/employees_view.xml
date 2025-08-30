@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="hr_employee_modification" model="ir.ui.view">
+        <field name="name">hr.employee.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="get_purchase_orders" type="object"
+                        class="oe_stat_button"
+                            icon="fa-list"
+                            invisible="not purchase_order_count">
+                            <field name="purchase_order_count" widget="statinfo" string="Purchase Orders"/>
+                    </button>
+                </xpath>
+        </field>
+    </record>
+    <record id="hr_employee_modified_view" model="ir.ui.view">
+    <field name="name">hr.employee.kanban.inherit</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//templates" position="before">
+                <t t-esc="record.purchase_order_count.raw_value" class="purchase-order-count"/>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <div class="ms-2" t-if="record.purchase_order_count.raw_value">
+                    <span t-translation="off">
+                        <i class="fa fa-shopping-cart" aria-label="Purchase Orders" title="Purchase Orders" role="img"></i>
+                        <t t-esc="record.purchase_order_count.raw_value"/> Purchase Orders
+                    </span>
+                </div>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+
+</odoo>
